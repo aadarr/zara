@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+import logo from './Components/images/logo.png';
 import './App.css';
+import ZaraLogin from './Components/ZaraLogin'
+import Login from './Components/Login'
+//import AllRoutes from './Components/AllRoutes';
+import Navbar from './Components/Navbar';
+import 'swiper/swiper-bundle.css'; 
+import Homepage from './Components/Homepage';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+ 
 
+// function App() {
+//   return (
+//     <div> 
+//       <Navbar/>
+//       <Homepage/>
+//     </div>
+  
+//   );
+// }
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<div><Navbar /><Homepage /></div>} />
+      <Route path="/login" element={<Login />} />
+    </Routes>
   );
 }
 
