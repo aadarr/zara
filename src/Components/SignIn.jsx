@@ -19,15 +19,16 @@ const SignIn = () => {
   })
 
   const firebaseConfig = {
-    apiKey: "AIzaSyDCHvdgABXgjtj6C3-55D2colSpVF05NTI",
-    authDomain: "zara-project-adec4.firebaseapp.com",
-    projectId: "zara-project-adec4",
-    storageBucket: "zara-project-adec4.appspot.com",
-    messagingSenderId: "1083442232261",
-    appId: "1:1083442232261:web:24d99e9bc4f6e92e49e9ac",
-    measurementId: "G-JLT9HVM9BX"
+    apiKey: "AIzaSyDGKN7RUU8IpGMvi0oAS-8sadGqJd-lD2U",
+    authDomain: "zara-9999.firebaseapp.com",
+    databaseURL: "https://zara-9999-default-rtdb.firebaseio.com",
+    projectId: "zara-9999",
+    storageBucket: "zara-9999.appspot.com",
+    messagingSenderId: "532676684448",
+    appId: "1:532676684448:web:d5b70ba816712ceb1137c5",
+    measurementId: "G-QSBCWYJE23"
   };
-
+  
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const onclickhandler = (e) => {

@@ -34,8 +34,7 @@ const Navbar = ({ activeIndexs }) => {
                 setTheme("black")
             }
         } else if (val === true) {
-            // setTheme("transparent")
-            setTheme("black")
+            setTheme("transparent")
         }
 
         if (location.pathname !== '/') {

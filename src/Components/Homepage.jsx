@@ -7,7 +7,7 @@ import SwiperCore, { Mousewheel, Pagination } from 'swiper';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useState } from "react";
-//import Navbar from "./Navbar";
+import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 SwiperCore.use([Mousewheel, Pagination]);
 const Homepage = () => {
@@ -88,7 +88,7 @@ const Homepage = () => {
     const category = ['Women', 'Men', 'Kids'];
     return (
         <Container activeIndexs={activeIndexs}>
-            {/* <Navbar style={{ display: "none" }} activeIndexs={activeIndexs} setIndex={setIndex}/> */}
+            <Navbar style={{ display: "none" }} activeIndexs={activeIndexs} setIndex={setIndex}/>
             <Swiper
                 direction={'vertical'}
                 slidesPerView={1}
