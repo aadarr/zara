@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-//import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 //import { getCart } from '../Redux/App/action';
@@ -12,7 +12,7 @@ const Navbar = ({ activeIndexs }) => {
     const [val, setVal] = useState(true)
     const location = useLocation();
     //const { cart } = useSelector((store) => (store.AppReducer));
-    //const { isAuth } = useSelector((store) => (store.AuthReducer));
+    const { isAuth } = useSelector((store) => (store.AuthReducer));
     const handleChange = (e) => {
         changeVal()
         if (e.target.checked) {
@@ -95,19 +95,17 @@ const Navbar = ({ activeIndexs }) => {
                             <input type="text" placeholder='SEARCH' />
                         </div>
                     </Link>
-                    <div>
-                    <Link to='/login' state={{path:'/'}}> <span>LOGIN</span></Link>
-                    </div>
-                    {/* <div >
-                        {!isAuth ? <Link to='/login' state={{path:'/'}}> <span>LOGIN</span></Link> : <Signout/>}
-                        <Link to="/help">
+
+                    <div >
+                        {!isAuth ? <Link to='/login' state={{path:'/'}}><span>LOGIN</span></Link> : <Signout/>}  
+                        {/* <Link to="/help">
                             <span className='help'>HELP</span>
                         </Link>
                         <Link to="/cart">
                             <svg width="30" height="30" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="inherit" stroke="inherit"><path fillRule="evenodd" clipRule="evenodd" d="M8.5 4.9V3.3a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v1.6h4.8V12h-1V5.9H4.7v14H15v1H3.7v-16h4.8zm1-1.6a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v1.6h-5V3.3z"></path><path fillRule="evenodd" clipRule="evenodd" d="M17.4 23.4v-9h5.4v9l-2.705-2.673L17.4 23.4zm2.694-3.798L22 21.485V15.2h-3.8v6.28l1.894-1.878z"></path></svg>
                             <span style={{ position: 'relative', right: cart && cart.length > 9 ? '21px' : '18px', top: "-10px", fontSize: '12px' }}>{cart?cart.length:'0'}</span>
-                        </Link>
-                    </div> */}
+                        </Link> */}
+                    </div>
                 </div>
             </Container>
         </>

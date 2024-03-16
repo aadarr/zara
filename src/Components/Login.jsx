@@ -1,6 +1,7 @@
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
 import "./LogIn.css";
 import { useState } from 'react';
+import { firebaseConfig } from '../firebase/config.js';
 import { initializeApp } from "firebase/app";
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../Redux/Auth/action.js'
@@ -191,16 +192,6 @@ const LogIn = () => {
     password: ''
   })
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyDGKN7RUU8IpGMvi0oAS-8sadGqJd-lD2U",
-    authDomain: "zara-9999.firebaseapp.com",
-    databaseURL: "https://zara-9999-default-rtdb.firebaseio.com",
-    projectId: "zara-9999",
-    storageBucket: "zara-9999.appspot.com",
-    messagingSenderId: "532676684448",
-    appId: "1:532676684448:web:d5b70ba816712ceb1137c5",
-    measurementId: "G-QSBCWYJE23"
-  };
 
   const app = initializeApp(firebaseConfig);
   const handleLogin = (e) => {
@@ -230,10 +221,10 @@ const LogIn = () => {
           <div className='Login_second_box1'>
             <h2>LOG IN</h2>
             <form action="">
-              <label htmlFor="">E-MAIL</label><br />
+              <label htmlFor=""></label><br />
 
               <input type="email" placeholder='Enter Email' onChange={(e) => setData({ ...data, email: e.target.value })} /><br /><br />
-              <label htmlFor="">PASSWORD</label><br />
+              <label htmlFor=""></label><br />
               <input type="password" placeholder='Enter Password' onChange={(e) => setData({ ...data, password: e.target.value })} /><br /><br />
               <button onClick={handleLogin}>LOG IN</button>
             </form>
