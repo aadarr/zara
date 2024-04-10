@@ -63,7 +63,7 @@
 
 
 
-import LogIn from './LogIn'
+import LogIn from '.\src\Components\LogIn.jsx'
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import SignIn from './SignIn'
