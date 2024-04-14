@@ -1,3 +1,6 @@
+import { initializeApp } from "firebase/app";
+import { getFirestore } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
 export const firebaseConfig = {
     apiKey: "AIzaSyDGKN7RUU8IpGMvi0oAS-8sadGqJd-lD2U",
     authDomain: "zara-9999.firebaseapp.com",
@@ -9,3 +12,9 @@ export const firebaseConfig = {
     measurementId: "G-QSBCWYJE23"
   };
 
+  const app = initializeApp(firebaseConfig);
+
+  const fireDB = getFirestore(app);
+  const auth = getAuth(app);
+  
+  export { fireDB, auth }

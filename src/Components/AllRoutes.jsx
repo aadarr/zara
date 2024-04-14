@@ -62,17 +62,24 @@
 
 
 
-import LogIn from './LogIn.jsx'
+import LogIn from './LogIn'
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import SignIn from './SignIn'
 import Homepage from './Homepage'
+
+import SinglePage from './SinglePage'
+import ProductPage from './ProductPage'
+
 const AllRoutes = () => {
   return (
     <Routes>
       <Route path='/' element={<Homepage />}></Route>
       <Route path='/login' element={<LogIn />} />
       <Route path='/signin' element={<SignIn />} />
+
+      <Route path='/product/:id' element={<SinglePage />}></Route>
+      <Route path='/products' element={<ProductPage />}></Route>
     </Routes>
   )
 }
