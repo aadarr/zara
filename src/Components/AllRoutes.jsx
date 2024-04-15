@@ -71,6 +71,8 @@ import Homepage from './Homepage'
 import SinglePage from './SinglePage'
 import ProductPage from './ProductPage'
 
+import Search from './Search'
+
 const AllRoutes = () => {
   return (
     <Routes>
@@ -80,6 +82,7 @@ const AllRoutes = () => {
 
       <Route path='/product/:id' element={<SinglePage />}></Route>
       <Route path='/products' element={<ProductPage />}></Route>
+      <Route path='/search' element={<Search />}></Route>
     </Routes>
   )
 }
