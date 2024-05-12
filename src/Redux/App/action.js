@@ -210,8 +210,10 @@ const getSingleProduct = (payload) => (dispatch) => {
 
 const postCart = (payload) => (dispatch) => {
     dispatch({ type: types.POST_CART_REQUEST });
+    const { id, ...rest } = payload;
+    const payloadWithQuantity = { ...rest, id, quantity: 1 };
     return axios
-        .post("https://zara-mock-server.herokuapp.com/cart", payload)
+        .put(`https://zara-9999-default-rtdb.firebaseio.com/cart/${id}.json`, payloadWithQuantity)
         .then((r) => {
             return dispatch({ type: types.POST_CART_SUCCESS });
         })
@@ -223,7 +225,7 @@ const postCart = (payload) => (dispatch) => {
 const getCart = (payload) => (dispatch) => {
     dispatch({ type: types.GET_CART_REQUEST });
     return axios
-        .get("https://zara-mock-server.herokuapp.com/cart")
+        .get("https://zara-9999-default-rtdb.firebaseio.com/cart.json")
         .then((r) => {
             return dispatch({ type: types.GET_CART_SUCCESS, payload: r.data });
         })
@@ -236,7 +238,7 @@ const deleteCart = (id) => (dispatch) => {
     dispatch({ type: types.DELETE_CART_REQUEST });
 
     return axios
-        .delete(`https://zara-mock-server.herokuapp.com/cart/${id}`)
+        .delete(`https://zara-9999-default-rtdb.firebaseio.com/cart/${id}.json`)
         .then((r) => {
             return dispatch({ type: types.DELETE_CART_SUCCESS });
         })
@@ -248,7 +250,7 @@ const patchcart = ({qnty,id}) => (dispatch) => {
     dispatch({ type: types.PATCH_CART_REQUEST });
 
     return axios
-        .patch(`https://zara-mock-server.herokuapp.com/cart/${id}`,{
+        .patch(`https://zara-9999-default-rtdb.firebaseio.com/cart/${id}.json`,{
             quantity : qnty
         })
         .then((r) => {

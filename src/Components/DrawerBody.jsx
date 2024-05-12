@@ -69,37 +69,73 @@ const DrawerBody = () => {
     }, [dispatch]);
     return (
 
+        // <div>
+        //     <Addcart>CART</Addcart>
+        //     <Addcartscroll>
+        //         {[cartdata]?.map((cart) => {
+        //             return (
+        //                 <Addcartbody key={cart.id}>
+        //                     <div className='addcartname'>{cart.name}</div>
+        //                     <div className='addcartflex'>
+        //                         <div className='addcartimage'>
+        //                             <img style={{ width: "100%", height: "305px" }} src={cart.image} alt={cart.producttitle} />
+        //                         </div>
+        //                         <div className='addcartrightflex'>
+        //                             <div style={{ paddingTop: "30px", textTransform:"uppercase" }}>{cart.color ? cart.color.split("|")[0] : "black / blue"}</div>
+        //                             <div>M (UK M)</div>
+        //                             <div>{cart.quantity}</div>
+        //                             <div style={{ paddingTop: "100px" }}>{cart.price}</div>
+        //                         </div>
+        //                     </div>
+        //                 </Addcartbody>
+        //             )
+        //         })}
+        //     </Addcartscroll>
+        //     <GotoBasket>
+
+        //     <div className="gotostyle">
+        //     <Link to="/cart">GO TO BASKET</Link>
+        //     </div>
+
+
+        //     </GotoBasket>
+        // </div>
         <div>
-            <Addcart>CART</Addcart>
-            <Addcartscroll>
-                {cartdata?.map((cart) => {
-                    return (
-                        <Addcartbody key={cart.id}>
-                            <div className='addcartname'>{cart.producttitle}</div>
-                            <div className='addcartflex'>
-                                <div className='addcartimage'>
-                                    <img style={{ width: "100%", height: "305px" }} src={cart.image} alt={cart.producttitle} />
-                                </div>
-                                <div className='addcartrightflex'>
-                                    <div style={{ paddingTop: "30px", textTransform:"uppercase" }}>{cart.color ? cart.color.split("|")[0] : "black / blue"}</div>
-                                    <div>M (UK M)</div>
-                                    <div>{cart.quantity}</div>
-                                    <div style={{ paddingTop: "100px" }}>{cart.price}</div>
-                                </div>
+        <Addcart>CART</Addcart>
+        <Addcartscroll>
+            {cartdata && Object.keys(cartdata).map((id) => {
+                const cart = cartdata[id];
+                if (!cart) {
+                    return null; // Skip rendering if cart is null
+                }
+                return (
+                    <Addcartbody key={id}>
+                        <div className='addcartname'>{cart.name}</div>
+                        <div className='addcartflex'>
+                            <div className='addcartimage'>
+                                <img style={{ width: "100%", height: "305px" }} src={cart.image} alt={cart.name} />
                             </div>
-                        </Addcartbody>
-                    )
-                })}
-            </Addcartscroll>
-            <GotoBasket>
+                            <div className='addcartrightflex'>
+                                <div style={{ paddingTop: "30px", textTransform:"uppercase" }}>Color: {cart.color ? cart.color.split("|")[0] : "black / blue"}</div>
+                                <div>Size: M (UK M)</div>
+                                <div>Quantity: {cart.quantity}</div>
+                                <div style={{ paddingTop: "100px" }}>Price: {cart.price}</div>
+                            </div>
+                        </div>
+                    </Addcartbody>
+                );
+            })}
+        </Addcartscroll>
+        <GotoBasket>
+        <div className="gotostyle">
+        <Link to="/cart">GO TO BASKET</Link>
+         </div>
+         </GotoBasket>
 
-            <div className="gotostyle">
-            <Link to="/cart">GO TO BASKET</Link>
-            </div>
+    </div>
+    
 
 
-            </GotoBasket>
-        </div>
     )
 }
 
