@@ -24,6 +24,6 @@ class TestSinglepage():
   def test_singlepage(self):
     self.driver.get("http://localhost:3000/products")
     self.driver.set_window_size(654, 720)
-    element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".sc-fsYfdN:nth-child(1) img")))
+    element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".sc-qZrbh:nth-child(1) img")))
     element.click()
   
