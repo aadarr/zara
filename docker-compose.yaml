@@ -10,9 +10,3 @@ services:
     expose:
       - 3000
 
-  selenium:
-    image: selenium/standalone-chrome
-    ports:
-      - "4444:4444"
-    depends_on:
-      - web
