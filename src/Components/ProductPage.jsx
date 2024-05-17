@@ -8,7 +8,7 @@ import { useLocation } from 'react-router-dom';
 
 const ProductPage = ({limit}) => {
     const location = useLocation();
-    const term = location.state?.query;
+    const term = location.state?.query || 'product';
     const products = useSelector((state) => state.AppReducer.products)
     const dispatch = useDispatch();
     useEffect(() => {

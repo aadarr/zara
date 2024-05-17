@@ -11,7 +11,7 @@ import Drawer from '@mui/material/Drawer';
 import CloseIcon from '@mui/icons-material/Close';
 import DrawerBody from './DrawerBody';
 import ProductPage from './ProductPage';
-
+import { useLocation } from 'react-router-dom';
 //------------------drawer components------------//
 const drawerWidth = 382;
 
@@ -27,7 +27,9 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 const SinglePage = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const location = useLocation();
+  const term = location.state?.query || 'product';
 //------------------drawer components------------//
 const theme = useTheme();
 const [opend, setOpend] = React.useState(false);
@@ -62,10 +64,11 @@ const handleDrawerClose = () => {
 
   useEffect(() => {
     if (id) {
-      let payload = id;
-      dispatch(getSingleProduct(payload));
+      let dataa = id;
+      let t= term;
+      dispatch(getSingleProduct(t,dataa));
     }
-  }, [id, dispatch]);
+  }, [term, id, dispatch]);
   return (
     <>
       <div className='main'>
@@ -75,7 +78,7 @@ const handleDrawerClose = () => {
             <h5 style={{ marginButtom: "30px" }}>MATERIALS</h5>
             <p style={{ marginButtom: "30px" }}>{single?.materialdesc}</p>
             <p style={{ marginButtom: "30px" }}>To assess compliance, we have developed a programme of audits and continuous improvement plans.</p>
-            <h5>{single.materialshell}</h5>
+            <h5>{single?.materialshell}</h5>
             <p style={{ marginButtom: "30px" }}>{single?.materialtype}</p>
             <h5 style={{ marginButtom: "30px" }}>CARE</h5>
             <p style={{ marginButtom: "30px" }}>{single?.care}</p>

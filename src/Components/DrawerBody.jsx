@@ -69,37 +69,7 @@ const DrawerBody = () => {
     }, [dispatch]);
     return (
 
-        // <div>
-        //     <Addcart>CART</Addcart>
-        //     <Addcartscroll>
-        //         {[cartdata]?.map((cart) => {
-        //             return (
-        //                 <Addcartbody key={cart.id}>
-        //                     <div className='addcartname'>{cart.name}</div>
-        //                     <div className='addcartflex'>
-        //                         <div className='addcartimage'>
-        //                             <img style={{ width: "100%", height: "305px" }} src={cart.image} alt={cart.producttitle} />
-        //                         </div>
-        //                         <div className='addcartrightflex'>
-        //                             <div style={{ paddingTop: "30px", textTransform:"uppercase" }}>{cart.color ? cart.color.split("|")[0] : "black / blue"}</div>
-        //                             <div>M (UK M)</div>
-        //                             <div>{cart.quantity}</div>
-        //                             <div style={{ paddingTop: "100px" }}>{cart.price}</div>
-        //                         </div>
-        //                     </div>
-        //                 </Addcartbody>
-        //             )
-        //         })}
-        //     </Addcartscroll>
-        //     <GotoBasket>
-
-        //     <div className="gotostyle">
-        //     <Link to="/cart">GO TO BASKET</Link>
-        //     </div>
-
-
-        //     </GotoBasket>
-        // </div>
+      
         <div>
         <Addcart>CART</Addcart>
         <Addcartscroll>
