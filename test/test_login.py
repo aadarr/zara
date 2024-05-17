@@ -9,6 +9,10 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 
 class TestLogin():
   def setup_method(self, method):
@@ -21,7 +25,8 @@ class TestLogin():
   def test_login(self):
     self.driver.get("http://localhost:3000/")
     self.driver.set_window_size(664, 720)
-    self.driver.find_element(By.CSS_SELECTOR, ".kuMitT > .navRightSection a:nth-child(1) > span").click()
+    new_link = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".kuMitT > .navRightSection a:nth-child(1) > span")))
+    new_link.click()
     self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").click()
     self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").send_keys("hello@gmail.com")
     self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(8)").send_keys("12345678")
