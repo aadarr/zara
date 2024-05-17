@@ -21,7 +21,7 @@ class TestLogin():
   def test_login(self):
     self.driver.get("http://localhost:3000/")
     self.driver.set_window_size(664, 720)
-    self.driver.find_element(By.CSS_SELECTOR, ".kuMitT > .navRightSection a:nth-child(1) span").click()
+    self.driver.find_element(By.CSS_SELECTOR, ".kuMitT > .navRightSection a:nth-child(1) > span").click()
     self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").click()
     self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(3)").send_keys("hello@gmail.com")
     self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(8)").send_keys("12345678")
